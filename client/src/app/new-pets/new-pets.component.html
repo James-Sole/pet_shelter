@@ -1,0 +1,53 @@
+<nav class="navbar navbar-light bg-light">
+  <h6>Know of a pet in need of a home?</h6>
+  <a class="btn btn-outline-primary"[routerLink]="['/pet']">Home</a>
+</nav>
+<form (submit)="newPet()">
+
+  <div class="">
+    <label for="name">Pet name:</label>
+    <input
+    class="form-control form-control-lg"
+     type="text"
+     name="pet.name"
+     [(ngModel)]="pet.name"
+     required
+     minlength='3'
+     placeholder="Pet Name">
+  </div>
+  <div class="">
+    <div class="form-group">
+      <label for="type">Pet Type:</label>
+      <input
+      class="form-control form-control-lg"
+      type="text"
+      [(ngModel)]="pet.type"
+      required
+      minlength="3"
+      name="pet.type"
+      placeholder="Type of Pet">
+    </div>
+    <div class="">
+      <label for="type">Pet Description:</label>
+      <input
+      class="form-control form-control-lg"
+      type="text"
+      [(ngModel)]="pet.description"
+      required
+      minlength="3"
+      name="pet.description"
+      placeholder="Pet Description">
+    </div>
+    <div *ngFor="let i of [0,1,2]">
+      <label for="pet.skills{{i}}">Skill {{i+1}}</label>
+      <input
+      class="form-control form-control-lg"
+      type="text"
+      [(ngModel)]="pet.skills[i]"
+      name="pet.skills{{i}}"
+      placeholder="Skill {{i+1}}">
+    </div>
+    <button class="btn btn-outline-success" type="submit" name="button">Add Pet</button>
+    <button class="btn btn-outline-danger" [routerLink]="['/pet']" type="button" name="button">Cancel</button>
+  </div>
+</form>

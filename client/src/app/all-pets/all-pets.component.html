@@ -1,0 +1,24 @@
+<nav class="navbar navbar-light bg-light">
+  <h6>These pets are looking for a home!</h6>
+  <a class="btn btn-outline-primary"[routerLink]="['/pet/new']" > Add a Pet</a>
+</nav>
+
+<table class="table table-dark">
+  <thead>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pet of pets">
+      <td>{{pet.name}}</td>
+      <td>{{pet.type}}</td>
+      <td>
+        <button class="btn btn-outline-warning"[routerLink]="['/pet',pet._id,'edit']"
+        type="button" name="button">Edit</button>
+        <button class="btn btn-outline-light"[routerLink]="['/pet/',pet._id]" type="button" name="button">Show</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>

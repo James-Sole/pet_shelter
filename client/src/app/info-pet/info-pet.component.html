@@ -1,0 +1,18 @@
+<nav class="navbar navbar-light bg-light">
+  <h6>Details about {{pet.name}}</h6>
+  <a class="btn btn-outline-primary"[routerLink]="['/pet']">Home</a>
+</nav>
+
+<div class="card">
+  <div class="card-header">
+    <h6>Pet type: </h6><p>{{pet.type}}</p>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Description: {{pet.description}}</h5>
+    <h6>Skills: </h6><p class="card-text" *ngFor="let skill of pet.skills">{{skill}}</p>
+    <p >With supporting text below as a natural lead-in to additional content.</p>
+    <h6>Likes: {{pet.likes}} </h6>
+    <button class="btn btn-outline-info" (click)="likes()" [disabled]="liked" type="button" name="button">Like Pet</button>
+    <button class="btn btn-outline-success" (click)="adopt()" type="button" name="button">Adopt Pet</button>
+  </div>
+</div>
